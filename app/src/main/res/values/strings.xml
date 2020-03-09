@@ -21,4 +21,8 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="btn_login">Вход</string>
+    <string name="et_user">Введите имя пользователя</string>
+    <string name="et_password">Введите пароль</string>
+    <string name="auto_title">Аутентификация</string>
 </resources>
