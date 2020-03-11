@@ -39,5 +39,19 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_login"
         android:layout_gravity="center"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flat"
+        android:layout_gravity="center"
+        android:background="@drawable/flat_button"
+        />
+    <Button
+        android:id="@+id/buttonExit"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exit"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
