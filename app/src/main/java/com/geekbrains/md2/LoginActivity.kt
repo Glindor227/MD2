@@ -7,20 +7,17 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.login_contex.*
 
 class LoginActivity : AppCompatActivity() {
-    private val GOODUSER:String = "1"
-    private val GOODPASSWORD:String = "1"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         buttonEnter.setOnClickListener {
-            if((etPassword.text.toString() == GOODPASSWORD) and (etLogin.text.toString() == GOODUSER)){
+            if((etPassword.text.toString() == GOOD_PASSWORD) and (etLogin.text.toString() == GOOD_USER)){
                 startActivity(Intent(this, MainActivity::class.java))
             } else {
                 Snackbar.make(it, "Не верный пароль(${etPassword.text})(${etLogin.text})", Snackbar.LENGTH_LONG)
                     .setAction("Помочь!") {
-                        etLogin.setText(GOODUSER)
-                        etPassword.setText(GOODPASSWORD)
+                        etLogin.setText(GOOD_USER)
+                        etPassword.setText(GOOD_PASSWORD)
                     }
                     .show()
             }
@@ -28,5 +25,10 @@ class LoginActivity : AppCompatActivity() {
         buttonExit.setOnClickListener {
             finish()
         }
+    }
+
+    companion object {
+        private const val GOOD_USER:String = "1"
+        private const val GOOD_PASSWORD:String = "1"
     }
 }
