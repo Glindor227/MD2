@@ -2,14 +2,11 @@
     <string name="app_name">MD2</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">PictViewer</string>
+    <string name="nav_header_subtitle">glindor227@gmail.com</string>
+    <string name="nav_header_desc">Картинки это круто!</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
     <string name="title_activity_main2">MainActivity</string>
@@ -27,4 +24,7 @@
     <string name="auto_title">Аутентификация</string>
     <string name="exit">Закрыть</string>
     <string name="flat">flat</string>
+    <string name="nav_fru">Фрукты</string>
+    <string name="nav_veg">Овощи</string>
+    <string name="nav_nat">Природа</string>
 </resources>
