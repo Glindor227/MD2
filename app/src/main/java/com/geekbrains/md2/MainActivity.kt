@@ -33,8 +33,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
         nav_view.setNavigationItemSelectedListener(this)
-
-
+        loadingImage(R.id.nav_fru)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -54,14 +53,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             delay(2000)
             runOnUiThread{
+
                 when(index){
-                    R.id.nav_fru -> main_image.setImageResource(R.drawable.f2)
-                    R.id.nav_veg -> main_image.setImageResource(R.drawable.o1)
-                    R.id.nav_nat -> main_image.setImageResource(R.drawable.p1)
+                    R.id.nav_fru -> {main_image.setImageResource(R.drawable.f2)
+                        toolbar_layout.title = "Фрукты"
+                        bigtext.text = this@MainActivity.getText(R.string.fru_text).toString()
+                    }
+                    R.id.nav_veg -> {main_image.setImageResource(R.drawable.o1)
+                        toolbar_layout.title = "Овощи"
+                        bigtext.text = this@MainActivity.getText(R.string.veg_text).toString()}
+                    R.id.nav_nat -> {main_image.setImageResource(R.drawable.p1)
+                        toolbar_layout.title = "Природа"
+                        bigtext.text = this@MainActivity.getText(R.string.nat_text).toString()}
                 }
                 prog_bar_test.visibility = ProgressBar.INVISIBLE
             }
         }
+
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         loadingImage(item.itemId)
