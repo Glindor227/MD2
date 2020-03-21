@@ -26,7 +26,7 @@ class ScrollFABBehavior(context: Context, attrs: AttributeSet) : FloatingActionB
                                 dyConsumed: Int,
                                 dxUnconsumed: Int,
                                 dyUnconsumed: Int) {
- //       super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed)
+        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed)
         Log.d("FAB", "dyConsumed $dyConsumed")
 
         if (dyConsumed > 0 && View.VISIBLE === child.visibility) {
