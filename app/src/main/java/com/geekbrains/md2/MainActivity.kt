@@ -7,11 +7,11 @@ import android.widget.ProgressBar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import com.geekbrains.md2.data.MainListItem
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         setSupportActionBar(toolbar)
         fab.setOnClickListener { view ->
@@ -57,14 +59,55 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 when(index){
                     R.id.nav_fru -> {main_image.setImageResource(R.drawable.f2)
                         toolbar_layout.title = "Фрукты"
-                        bigtext.text = this@MainActivity.getText(R.string.fru_text).toString()
+                        toolbar.title = "Фрукты"
+                        val items = listOf(
+                            MainListItem("Яблоко","Вкустно", main_image),
+                            MainListItem("Груша","Так себе", main_image),
+                            MainListItem("Арбуз","Вообщето ягода", main_image),
+                            MainListItem("Виноград","Вино лучге", main_image),
+                            MainListItem("Апельсин","Большой", main_image),
+                            MainListItem("Мандарин","С новым годом!", main_image),
+                            MainListItem("ФруктX","Ну и фрукт...", main_image),
+                            MainListItem("ФруктX","Ну и фрукт...", main_image),
+                            MainListItem("ФруктX","Ну и фрукт...", main_image),
+                            MainListItem("ФруктX", "Ну и фрукт...",main_image),
+                            MainListItem("ФруктX","Ну и фрукт...", main_image),
+                            MainListItem("ФруктX", "Ну и фрукт...",main_image),
+                            MainListItem("ФруктX", "Ну и фрукт...",main_image),
+                            MainListItem("ФруктX", "Ну и фрукт...",main_image),
+                            MainListItem("ФруктX", "Ну и фрукт...",main_image)
+                        )
+                        myRecycler.adapter = MainListAdapter(items, object : MainListAdapter.Callback {
+                            override fun onItemClicked(item: MainListItem) {
+                                //TODO Сюда придёт элемент, по которому кликнули. Можно дальше с ним работать
+                            }
+                        })
                     }
                     R.id.nav_veg -> {main_image.setImageResource(R.drawable.o1)
                         toolbar_layout.title = "Овощи"
-                        bigtext.text = this@MainActivity.getText(R.string.veg_text).toString()}
+                        val items = listOf(
+                            MainListItem("Огурец", "Полезно",main_image),
+                            MainListItem("Картофан","Спасибо Колумбу", main_image)
+                        )
+                        myRecycler.adapter = MainListAdapter(items, object : MainListAdapter.Callback {
+                            override fun onItemClicked(item: MainListItem) {
+                                //TODO Сюда придёт элемент, по которому кликнули. Можно дальше с ним работать
+                            }
+                        })
+                    }
                     R.id.nav_nat -> {main_image.setImageResource(R.drawable.p1)
                         toolbar_layout.title = "Природа"
-                        bigtext.text = this@MainActivity.getText(R.string.nat_text).toString()}
+                        val items = listOf(
+                            MainListItem("Береза","бревно", main_image),
+                            MainListItem("Дуб", "бревно",main_image),
+                            MainListItem("Ясень","бревно", main_image),
+                            MainListItem("Дерево", "бревно",main_image)
+                        )
+                        myRecycler.adapter = MainListAdapter(items, object : MainListAdapter.Callback {
+                            override fun onItemClicked(item: MainListItem) {
+                                //TODO Сюда придёт элемент, по которому кликнули. Можно дальше с ним работать
+                            }
+                        })                    }
                 }
                 prog_bar_test.visibility = ProgressBar.INVISIBLE
             }
