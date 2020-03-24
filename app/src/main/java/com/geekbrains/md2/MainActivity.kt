@@ -1,5 +1,6 @@
 package com.geekbrains.md2
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -95,7 +96,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                             }
                         })
                     }
-                    R.id.nav_nat -> {main_image.setImageResource(R.drawable.p1)
+
+                    R.id.nav_nat -> {
+
+                        main_image.setImageResource(R.drawable.p1)
                         toolbar_layout.title = "Природа"
                         val items = listOf(
                             MainListItem("Береза","бревно", main_image),
@@ -107,7 +111,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                             override fun onItemClicked(item: MainListItem) {
                                 //TODO Сюда придёт элемент, по которому кликнули. Можно дальше с ним работать
                             }
-                        })                    }
+                        })
+                    }
                 }
                 prog_bar_test.visibility = ProgressBar.INVISIBLE
             }
@@ -115,7 +120,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        loadingImage(item.itemId)
+        startActivity(Intent(this, TabActivity::class.java))
+//        loadingImage(item.itemId)
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
