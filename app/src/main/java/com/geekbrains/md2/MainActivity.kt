@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                             }
                         })
                     }
-
+/*
                     R.id.nav_nat -> {
 
                         main_image.setImageResource(R.drawable.p1)
@@ -113,6 +113,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                             }
                         })
                     }
+                    */
                 }
                 prog_bar_test.visibility = ProgressBar.INVISIBLE
             }
@@ -120,8 +121,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        startActivity(Intent(this, TabActivity::class.java))
-//        loadingImage(item.itemId)
+        if(item.itemId == R.id.nav_nat)
+            startActivity(Intent(this, TabActivity::class.java))
+        else {
+            loadingImage(item.itemId)
+        }
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }

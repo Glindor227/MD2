@@ -8,6 +8,7 @@ import com.geekbrains.md2.fragments.FragmentAnimal
 import com.geekbrains.md2.fragments.FragmentFlower
 import com.geekbrains.md2.fragments.FragmentTree
 import com.geekbrains.md2.fragments.FragmentsAdaptor
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_tab.*
 
 
@@ -16,6 +17,10 @@ class TabActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tab)
+        fab_tab.setOnClickListener { view ->
+            Snackbar.make(view, "Press FAB in Tab activity", Snackbar.LENGTH_LONG).show()
+        }
+
         setSupportActionBar(toolbar_tab)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val fragmentAdapter = FragmentsAdaptor(supportFragmentManager)

@@ -16,7 +16,7 @@ class FragmentAnimal : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_animal, container, false)
+        return inflater.inflate(R.layout.fragment_animal, container, false)
     }
 
 }

@@ -29,4 +29,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tabs"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/fab_margin"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        app:layout_anchorGravity="bottom|end"
+        app:layout_anchor="@id/viewpager"
+        app:layout_behavior=".ScrollFABBehavior"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
