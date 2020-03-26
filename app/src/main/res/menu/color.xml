@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/base_color"
+        android:orderInCategory="100"
+        android:title="@string/base_color_title"/>
+    <item
+        android:id="@+id/purple_color"
+        android:title="@string/purple_color_title"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/green_color"
+        android:title="@string/green_color_title"
+        app:showAsAction="never"/>
+</menu>
