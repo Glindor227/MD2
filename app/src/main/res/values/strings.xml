@@ -66,5 +66,8 @@
     <string name="tab_tree_title">Деревья</string>
     <string name="tab_flower_title">Цветы</string>
     <string name="tab_animal_title">Животные</string>
+    <string name="base_color_title">Базовый цвет</string>
+    <string name="purple_color_title">Пурпурный цвет</string>
+    <string name="green_color_title">Зеленый цвет</string>
 
 </resources>

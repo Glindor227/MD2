@@ -1,8 +1,10 @@
 package com.geekbrains.md2
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.ProgressBar
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -19,11 +21,17 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    private lateinit var color: SharedPreferences
+    companion object {
+        const val APP_PREFERENCES = "MD2_Pref"
+        const val APP_PREFERENCES_COUNTER = "theme_numer"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        initSharedProp()
         setContentView(R.layout.activity_main)
-
-
 
         setSupportActionBar(toolbar)
         fab.setOnClickListener { view ->
@@ -39,14 +47,42 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         loadingImage(R.id.nav_fru)
     }
 
+    private fun initSharedProp() {
+        color = getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE)
+        if (color.contains(APP_PREFERENCES_COUNTER)) {
+            when (color.getInt(APP_PREFERENCES_COUNTER, 0)) {
+                1 -> setTheme(R.style.AppTheme)
+                3 -> setTheme(R.style.AppTheme3)
+                2 -> setTheme(R.style.AppTheme2)
+            }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.color,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             android.R.id.home -> {
                 Log.d("Log", "Press back")
                 onBackPressed()
             }
+            else -> setColor(item.itemId)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setColor(itemId: Int) {
+        val editor = color.edit()
+        when(itemId) {
+            R.id.base_color -> editor.putInt(APP_PREFERENCES_COUNTER, 1)
+            R.id.green_color -> editor.putInt(APP_PREFERENCES_COUNTER, 3)
+            R.id.purple_color -> editor.putInt(APP_PREFERENCES_COUNTER, 2)
+        }
+        editor.apply()
+        recreate()
     }
 
     private fun loadingImage(index: Int) {
@@ -137,4 +173,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             super.onBackPressed()
         }
     }
+
 }
